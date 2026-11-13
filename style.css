@@ -1,0 +1,94 @@
+/* Les variables : les mesures du fil de fer, et les couleurs de la boutique */
+:root {
+  --couleur-texte: #14006e;
+  --couleur-bouton: #14006e;
+  --couleur-bouton-survol: #5a4c9a;
+  --espace: 24px;
+}
+
+/* Le padding et la bordure comptent dans la largeur */
+* {
+  box-sizing: border-box;
+}
+
+/* La page : sans la marge du navigateur, une police système */
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+}
+
+/* La section : centrée, 1200 px de large au maximum */
+.demarche {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px var(--espace);
+}
+
+/* L'introduction sous le titre */
+.demarche-intro {
+  margin-bottom: 40px;
+}
+
+/* Les trois cartes côte à côte, 24 px entre elles, alignées en haut */
+.demarche-cartes {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espace);
+}
+
+/* Chaque carte : même largeur, 24 px de marge intérieure */
+.carte {
+  flex: 1;
+  padding: var(--espace);
+  border: 1px solid #b9b2d3;
+  border-radius: 12px;
+  background-color: #e8e5f0;
+}
+
+/* Le bouton : 44 px de haut, la taille d'un doigt */
+.carte-bouton {
+  min-height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--couleur-bouton);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Le bouton au survol */
+.carte-bouton:hover,
+.carte-bouton:focus-visible {
+  background-color: var(--couleur-bouton-survol);
+}
+
+/* Le texte caché, fermé par défaut, sous le bouton */
+.carte-detail {
+  display: none;
+  margin-top: 16px;
+}
+
+/* Quand la carte a la classe est-ouvert, son texte s'affiche */
+.carte.est-ouvert .carte-detail {
+  display: block;
+}
+
+/* Sur téléphone : en dessous de 700 px, une seule colonne */
+@media (max-width: 700px) {
+  .demarche {
+    padding: 40px 16px;
+  }
+
+  .demarche-cartes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .carte-bouton {
+    width: 100%;
+    min-height: 44px;
+  }
+}
